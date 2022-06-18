@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../frontScripts/checkUserId.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../stylesheets/fontawesome.min.css">
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="../stylesheets/mdb.min.css">
+    <link rel="stylesheet" href="../stylesheets/studentFeeds/studentFeedes.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <script src="/socket.io/socket.io.js" ></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- ****************************************-NAVBAR-****************************************** -->
+  
+
+    <div class="navTop">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">FCI</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                           
+                            <a class="nav-link" href="/feedes/" id="timeLine">Student Home </a>
+
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Profile</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                <a class="dropdown-item" href="/quizes" id="quizesLink" >Quizes</a>
+                                <a class="dropdown-item" href="/doneQuizes" id="doneQuizes">Done Quizes</a>
+                                <a class="dropdown-item" href="/material/" id="materialLink">materials</a>
+                                <a class="dropdown-item" href="" id="profileLink"> profile settings</a>
+                                <a class="dropdown-item" href="../../users/logout" id="logoutLink">Logout</a>
+
+                               
+
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search" onchange="greeting()">
+                        <img src="../images/default.png" alt="" id="userProfileImage">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- *****************************************-End-NAVBAR-***************************************** -->
+
+
+    <!-- 
+        //
+        //
+        //
+     -->
+    <!-- ******************************************-All************************************************** -->
+    <div class="all clearfix">
+        <!-- *****************************************-SaidBar |-***************************************** -->
+        <div class="allLeft">
+            <h5>MENU</h5>
+            <ul>
+                <li class="nav-item">
+                    <a  class="nav-link" href="/doctors/" id="doctorSideBarLink"><i
+                            class="fas fa-user-tie mr-2 "></i>
+                        Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/students/" id="studentsSideBarLink"><i class="fas fa-users mr-2"></i> Student</a>
+                </li>
+                {{!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user-shield mr-2"></i> Affairs</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/events"><i class="far fa-calendar mr-2"></i>Events</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="/messages"><i
+                            class="fas fa-comment-dots mr-2"></i>Massages<span id="unreadMessages"
+                            class="badge badge-success float-right mt-1"><!--# unreaded Messages--></span> </a>
+                </li>
+            </ul>
+            <br><br><br>
+            <hr>
+             <h5>PAGES</h5>
+            <div class="pages">
+                <li class=" mb-3"><i class="fas fa-graduation-cap mr-2"></i><a href="/posts/1">First Grade</a></li>
+                <li class=" mb-3"><i class="fas fa-graduation-cap mr-2"></i> <a href="/posts/2">Second Grade</a></li>
+                <li class="nav-item dropdown mb-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-graduation-cap mr-2"></i>Therd Grade</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/posts/3cs">Computer Science (CS)</a>
+                        <a class="dropdown-item" href="/posts/3is">Information System (IS</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mb-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-graduation-cap mr-2"></i>Fourth Grade</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/posts/4cs">Computer Science (CS)</a>
+                        <a class="dropdown-item" href="/posts/4is">Information System (IS</a>
+                    </div>
+                </li>
+               
+              
+            </div>
+        </div>
+        <!-- *****************************************-END-SaidBar-***************************************** -->
+        <!-- 
+    //
+    //
+    //
+ -->
+        <!-- *****************************************-Body-***************************************** -->
+        <!-- *****************************************-END-Body-***************************************** -->
+        <div class="allRight">
+
+            <div class="allRightTop mb-5">
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="left">
+                            <ul class="mt-3">
+                                <li class=" dropdown">
+                                    <a class="dropdown-toggle mr-2" href="#" id="dropdown01" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">MUNE</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <a class="dropdown-item" href="/doctors/" id="doctorssideBar2"><i
+                                                class="fas fa-user-tie mr-2"></i>Doctors</a>
+                                        <a class="dropdown-item" href="../../students" id="studentssideBar2"><i class="fas fa-users mr-2"></i>Student</a>
+                                        <a class="dropdown-item" href="/events"><i class="far fa-calendar mr-2"></i>Events</a>
+                                        <a class="dropdown-item" href="/messages"><i
+                                                class="fas fa-comment-dots mr-2"></i>Massages</a>
+                                    </div>
+                                </li>
+                                 <!-- ********************** -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">PAGES</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <a class="dropdown-item mb-2" href="/posts/1"><i
+                                            class="fas fa-graduation-cap mr-2"></i>First Grade</a>
+                                    <a class="dropdown-item mb-2" href="/posts/2"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Second Grade</a>
+                                        <a class="dropdown-item mb-2" href="/posts/3cs"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Therd Grade (CS)</a>
+                                            <a class="dropdown-item mb-2" href="/posts/3is"><i
+                                                class="fas fa-graduation-cap mr-2"></i>Therd Grade (IS)</a>
+                                    <a class="dropdown-item mb-2" href="/posts/4cs"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Fourth Grade (CS)</a>
+                                        
+                                    <a class="dropdown-item mb-2" href="/posts/4is"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Fourth Grade (IS)</a>
+                                        
+                                        
+                                    </div>
+                                </li>
+                            <!-- *************** -->
+                            </ul>
+                        </div>
+                        
+                        <div class="right">
+                            <span class="mr-1 " id="sideBarName"><!--Name here--> </span>
+                            <img src="#" alt="" id="sideBarImage23">
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="allRightBody">
+                <div class="container">
+                    
+                    
+                    
+                    <div class="creatPost mb-3 mt-5">
+                        <div class="validation"></div>
+                        <form enctype="multipart/form-data">
+                        
+                            <textarea placeholder="Write SomeThing..." name="postContent" id="PostContent"></textarea>
+
+                            <div class="tool clearfix">
+
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <input type="file" id="file" name="fileAttatched">
+                                        <label for="file">
+                                            <i class="fas fa-paperclip fa-lg"></i>
+                                        </label>
+                                    </div>
+
+
+                                    <button class="col-3 btn btn-primary mr-3" type="submit" id="createPost">
+                                        <i class="fas fa-check fa-lg "></i>
+                                    </button>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    
+                     <div id="post66"  class="jj">
+                         <div class="loader" >Loading...</div>
+                     </div>
+
+
+                    
+
+                </div>
+                <!-- ******************************************Footer************************************************** -->
+        <footer class="page-footer font-small indigo mt-5 wow fadeInUp">
+      <div class="container">
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!">About us</a>
+            </h6>
+          </div>
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!">Help</a>
+            </h6>
+          </div>
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!">Contact</a>
+            </h6>
+          </div>
+        </div>
+        <hr
+          class="rgba-white-light"
+          style="margin: 0 15%; border: 1px solid #fff;"
+        />
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+          <div class="col-md-8 col-12 my-5">
+            <p style="line-height: 1.7rem">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia consequuntur.
+            </p>
+          </div>
+        </div>
+        <hr
+          class="clearfix d-md-none rgba-white-light"
+          style="margin: 10% 15% 5%;"
+        />
+        <div class="row pb-3">
+          <div class="col-md-12">
+            <div class="mb-5 flex-center text-center">
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i> </a
+              ><a class="tw-ic">
+                <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+              </a>
+              <a class="gplus-ic">
+                <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+              </a>
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+              </a>
+              <a class="ins-ic">
+                <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+              </a>
+              <a class="pin-ic">
+                <i class="fab fa-pinterest fa-lg white-text"> </i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr
+          class="rgba-white-light"
+          style="margin: 0 15%; border: 1px solid #fff;"
+        />
+      </div>
+      <div class="footer-copyright text-center py-3">
+        © Copyright: <span>FCI GROUP</span>
+      </div>
+    </footer>
+                <!-- ******************************************-End-Footer************************************************** -->
+            </div>
+        </div>
+    </div>
+    <!-- ******************************************-End-All************************************************** -->
+    <!-- 
+        //
+        //
+        //
+     -->
+
+
+
+
+
+
+
+
+    <!-- ********************************************************************************** -->
+    <script src="../frontScripts/feedesByLevel.js"></script>
+    <script src="../js/jquary.js"></script>
+    <script src="../js/mdb.min.js"></script>
+    <script src="../js/fontawesome.min.js"></script>
+    <script src="../js/poper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- ********************************************************************************** -->
+</body>
+
+</html>

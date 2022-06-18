@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../frontScripts/isAdmin.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/signup/signup.css">
+    <title>SignUp</title>
+</head>
+<body>
+    <div class="signup mt-5">
+
+        <div class="container">
+            <h1 class="text-center mb-1">FCI</h1>
+            <div class="line mb-5 mx-auto"></div>
+            <div id="validation">
+              
+            </div>
+            <h2 class="mb-3">Sign Up</h2>
+            <div class="line mb-5"></div>
+            <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="emailInput">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="password">
+                  </div>
+                </div>
+               <div class="row">
+                <div class="form-group col-md-8">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form-control" id="userName" placeholder="Example: Ahmed mahmoud">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="dateofBirth">Date of Birth</label>
+                    <input type="date" class="form-control" id="dateofBirth" >
+                  </div>
+               </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputState">Department</label>
+                    <select  class="form-control" id="Dept">
+                      
+                      <option value="general">General</option>
+                      <option value="cs">Computer Sience</option>
+                      <option value="is">Information System</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputState">Level</label>
+                    <select id="level" class="form-control">
+                      
+                            <option value="1">First Grade</option>
+                            <option value="2">Second Grade</option>
+                            <option value="3cs">Therd Grade (CS) </option>
+                            <option value="3is">Therd Grade (IS) </option>
+                            <option value="4cs">Fourth Grade (CS) </option>
+                            <option value="4is">Fourth Grade (IS) </option>
+                    </select>
+                  </div>
+
+                   <div class="form-group col-md-8">
+                    <label for="inputState">City</label>
+                    <select id="city" class="form-control">
+                      
+                            <option value="ismalia">Ismalia</option>
+                            <option value="PortSaid">PortSaid</option>
+                            <option value="Alex">Alex</option>
+                            <option value="Mansoura">Mansoura </option>
+                            <option value="Domiat">Domiat</option>
+                            <option value="Suez">Suez</option>
+                            <option value="cairo">cairo</option>
+                            <option value="Menoufia">Menoufia</option>
+                            <option value="Fiume">Fiume</option>
+                            <option value="Mahalla">Mahalla</option>
+                    </select>
+                  </div>
+
+                   <div class="form-group col-md-4">
+                    <label for="inputState">Gender</label>
+                    <select id="gender" class="form-control">
+                           <option value="male">Male</option>
+                            <option value="female">Female</option>
+                           
+                    </select>
+                  </div>
+                </div>
+                <button  class="btn btn-danger mb-5" id="backBtn">Back to Home</button> 
+                <button  class="btn btn-primary mb-5" id="submitbtn">Sign Up</button>
+              </form>
+        </div>
+    </div>
+
+    <script src="../frontScripts/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../frontScripts/isLogedin.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/login/loogin.css">
+   
+    <title>login</title>
+</head>
+
+<body>
+    <div class="">
+        <div class="full">
+            <div class="left ">
+                <h1 class="text-muted mb-3">FCI</h1>
+                <h1 class="text-muted mb-4">Have an account ?</h1>
+                <p class="text-muted mb-4">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi sint
+                    debitis inventore atque, obcaecati officia exercitationem id iure
+                    sed amet rem adipisci accusantium eligendi perspiciatis pariatur,
+                    odit quam nihil cupiditate.
+                </p>
+                <button type="button"   id="back" class="btn btn-outline-danger ">Back</button>
+            </div>
+            <div class="right ">
+                <form  id="chat-form">
+               <!--error message-->
+                    <div class="validationError"></div>
+                    
+                    
+                    <div class="l"><img src="../images/login-images/IMG-20200121-WA0006.jpg" alt="logo" /></div>
+                    <div class="r">
+                        <h1 class="my-4">LOGIN</h1>
+                    </div>
+                    <input class="mb-2" type="email" placeholder="E-mail" name="email"  id="email" onchange="" oninput=""/><span><i
+                            class="fas fa-envelope one"></i></span>
+                    <input class="mb-4" type="password" placeholder="Password" name="password"  id="password"/><span><i
+                            class="fas fa-key two"></i></span><br />
+                    <!-- ***********************************Radio****************************************** -->
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios1" checked="true"
+                            value="Student" />
+                        <label class="form-check-label " for="gridRadios1">
+                            Student
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios1"
+                            value="Doctor" />
+                        <label class="form-check-label " for="gridRadios1">
+                            Doctor
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input " type="radio" name="gridRadios" id="gridRadios1"
+                            value="Admin" />
+                        <label class="form-check-label " for="gridRadios1">
+                            Admin
+                        </label>
+                    </div>
+                    <br />
+                    <!-- ***********************************Radio****************************************** -->
+
+                    <a href="#" class="btn btn-outline-dark mt-3">
+                        Forget Password !
+                    </a>
+                    <button class="btn btn-primary mt-3" type="submit"  id="submitBtn">Log in</button>
+                </form>
+                {{!-- <button class="btn btn-danger mt-3 red" id="back">Back</button>
+                kkkkkkkkkkkk --}}
+            </div>
+        </div>
+    </div>
+
+    <script src="../frontScripts/login.js"></script>
+</body>
+
+</html>

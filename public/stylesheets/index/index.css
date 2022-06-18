@@ -1,0 +1,46 @@
+/* body > div {
+  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-bottom: 20px;
+} */
+/*   box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5);
+ */
+
+ .one {
+    margin-top: 100px;
+  }
+  
+  p {
+    line-height: 2;
+  }
+  .image {
+    box-shadow: 0 10px 8px -10px #000;
+  }
+  /* *****************************footer*********************** */
+  .page-footer {
+    background-color: #006699;
+    color: #fff;
+  }
+  .page-footer h6 a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .page-footer span {
+    color: yellow;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .line {
+    border: 1px solid #006699;
+    width: 200px;
+    border-radius: 50%;
+  }
+  
+  .line2 {
+    border: 1px solid #006699;
+    width: 150px;
+    border-radius: 50%;
+  }
+  
+  /* *****************************End-footer*********************** */
+  

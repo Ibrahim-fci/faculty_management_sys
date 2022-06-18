@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <script src="../frontScripts/checkUserId.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../stylesheets/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../stylesheets/quizSolution/quizSlo.css" />
+    <script src="/socket.io/socket.io.js" ></script>
+
+    <title>Quiz</title>
+  </head>
+
+  <body>
+   <!-- ****************************************-NAVBAR-****************************************** -->
+  
+
+    <div class="navTop">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">FCI</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                           
+                            <a class="nav-link" href="/feedes/" id="timeLine">Student Home </a>
+
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Profile</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                <a class="dropdown-item" href="/quizes" id="quizesLink"Quizes</a>
+                                <a class="dropdown-item" href="/doneQuizes" id="doneQuizes">Done Quizes</a>
+                                <a class="dropdown-item" href="/material/" id="materialLink">materials</a>
+                                <a class="dropdown-item" href="#" id="profileLink"> profile settings</a>
+                                <a class="dropdown-item" href="../../users/logout" id="logoutLink">Logout</a>
+
+                               
+
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search" onchange="greeting()">
+                        <img src="../images/default.png" alt="" id="userProfileImage">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- *****************************************-End-NAVBAR-***************************************** -->
+
+    <!-- *****************************************-End-NAVBAR-***************************************** -->
+    <!-- 
+        //
+        //
+        //
+     -->
+    <!-- ******************************************-All************************************************** -->
+    <!-- ******************************************-All************************************************** -->
+    <div class="all clearfix">
+         <!-- *****************************************-SaidBar |-***************************************** -->
+        <div class="allLeft">
+            <h5>MENU</h5>
+            <ul>
+                <li class="nav-item">
+                    <a  class="nav-link" href="/doctors/" id="doctorSideBarLink"><i
+                            <i class="fas fa-users mr-2"></i>
+                        Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/students/" id="studentsSideBarLink"><i class="fas fa-users mr-2"></i> Student</a>
+                </li>
+                {{!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user-shield mr-2"></i> Affairs</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/events"><i class="far fa-calendar mr-2"></i>Events</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/messages"><i class="fas fa-comment-dots mr-2"></i>Massages<span class="badge badge-success float-right mt-1" id="unreadMessages"><!--# unreaded messages--></span> </a>
+            </ul>
+            <br><br><br>
+            <hr>
+            <h5>PAGES</h5>
+            <div class="pages">
+
+                <div class="mb-3"><a href="/posts/1" style="color:#000; text-decoration:none"><i class="fas fa-graduation-cap mr-2"></i> First Grade</a></div>
+
+
+                <div class="mb-3"><a href="/posts/2" style="color:#000; text-decoration:none"><i class="fas fa-graduation-cap mr-2"></i> Second Grade</a></div>
+                <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-graduation-cap mr-2"></i>Therd Grade<i
+                        class="fas fa-caret-down mt-1 mr-2 float-right"></i>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item " href="#">Computer Science (CS) </a>
+                        <a class="dropdown-item " href="#">Information System (IS)</a>
+                    </div>
+                </div><br>
+                <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-graduation-cap mr-2"></i> Fourth Grade<i
+                        class="fas fa-caret-down mt-1 mr-2 float-right"></i>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item " href="/posts/4">Computer Science (CS) </a>
+                        <a class="dropdown-item" href="#">Information System (IS)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- *****************************************-END-SaidBar-***************************************** -->
+        <!-- *****************************************-END-SaidBar-***************************************** -->
+        <!-- 
+    //
+    //
+    //
+ -->
+        <!-- *****************************************-Body-***************************************** -->
+        <!-- *****************************************-END-Body-***************************************** -->
+        <div class="allRight">
+
+            <div class="allRightTop mb-5">
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="left">
+                            <ul class="mt-3">
+                                <li class=" dropdown">
+                                    <a class="dropdown-toggle mr-2" href="#" id="dropdown01" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">MUNE</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <a class="dropdown-item" href="/doctor/" id="doctorssideBar2"><i
+                                                class="fas fa-user-tie mr-2 mb-2"></i>Doctors</a>
+                                        <a class="dropdown-item" href="/students/" id="studentssideBar2"><i
+                                                class="fas fa-users mr-2 mb-2"></i>Student</a>
+                                      
+                                        <a class="dropdown-item" href="/events"><i
+                                                class="far fa-calendar mr-2 mb-2"></i>Events</a>
+                                        <a class="dropdown-item" href="/messages"><i
+                                                class="fas fa-comment-dots mr-2"></i>Massages</a>
+                                    </div>
+                                </li>
+                                <li class=" dropdown ">
+                                          <!-- ********************** -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">PAGES</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <a class="dropdown-item mb-2" href="/posts/1"><i
+                                            class="fas fa-graduation-cap mr-2"></i>First Grade</a>
+                                    <a class="dropdown-item mb-2" href="/posts/2"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Second Grade</a>
+                                        <a class="dropdown-item mb-2" href="/posts/3cs"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Therd Grade (CS)</a>
+                                            <a class="dropdown-item mb-2" href="/posts/3is"><i
+                                                class="fas fa-graduation-cap mr-2"></i>Therd Grade (IS)</a>
+                                    <a class="dropdown-item mb-2" href="/posts/4cs"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Fourth Grade (CS)</a>
+                                        
+                                    <a class="dropdown-item mb-2" href="/posts/4is"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Fourth Grade (IS)</a>
+                                        
+                                        
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <span class="mr-1 " id="sideName"><!--Name Here--></span>
+                            <img src="" alt="" id="imageSide">
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        <div class="allRightBody">
+          <!-- ***********************************************************Quiz********************************************* -->
+
+          <div class="quiz">
+            <div class="container">
+              <h1 class="mb-3">Quiz</h1>
+              <ul class="list-group">
+                    <div class="questionContainer">
+                      <div class="loader"></div>
+                    </div>
+                <!-- ************************************************************One Quations*********************************************** -->
+                {{!-- <li class="list-group-item p-3">
+                  <h6 class="mb-3">1- What is your Name ?</h6>
+                  <div class="col-12">
+                    <div class="form-check form-check-inline mb-3 col-lg-5">
+                      <b style="color: #006699;">A &nbsp;</b>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gridRadios"
+                        id="gridRadios1"
+                        value="option1"
+                      />
+                      <label class="form-check-label" for="gridRadios1">
+                        Ahmed
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline mb-3 col-lg-5">
+                      <b style="color: #006699;">B &nbsp;</b>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gridRadios"
+                        id="gridRadios1"
+                        value="option1"
+                      />
+                      <label class="form-check-label" for="gridRadios1">
+                        Mohamed
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline mb-3 col-lg-5">
+                      <b style="color: #006699;">C &nbsp;</b>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gridRadios"
+                        id="gridRadios1"
+                        value="option1"
+                      />
+                      <label class="form-check-label" for="gridRadios1">
+                        mahmoud
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline mb-3 col-lg-5">
+                      <b style="color: #006699;">D &nbsp;</b>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gridRadios"
+                        id="gridRadios1"
+                        value="option1"
+                      />
+                      <label class="form-check-label" for="gridRadios1">
+                        Khaled
+                      </label>
+                    </div>
+                  </div>
+                </li> --}}
+
+                <!-- ************************************************************One Quations*********************************************** -->
+              </ul>
+              <button class="btn btn-success mt-3" type="submit" id="finishBtn">
+                Finished
+              </button>
+              {{!-- <button
+                class="btn btn-danger mt-3 float-right"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+              >
+                <i class="fas fa-plus"></i>
+              </button> --}}
+            </div>
+          </div>
+          <!-- ******* -->
+          <div
+            class="modal fade"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div
+              class="modal-dialog modal-dialog-centered modal-lg"
+              role="document"
+            >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- ***************** -->
+
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1"
+                      >Enter new Quation</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="3"
+                      placeholder="Quation..."
+                    ></textarea>
+                  </div>
+                  <div class="form-row mb-3">
+                    <div class="col">
+                      <label for="" style="color: #006699;"><b>A</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Answer A"
+                      />
+                    </div>
+                    <div class="col">
+                      <label for="" style="color: #006699;"><b>B</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Answer B"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row mb-3">
+                    <div class="col">
+                      <label for="" style="color: #006699;"><b>C</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Answer C"
+                      />
+                    </div>
+                    <div class="col">
+                      <label for="" style="color: #006699;"><b>D</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Answer D"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row mb-3">
+                    <div class="col-6">
+                      <label for="" style="color: #006699;"><b>E</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Answer E"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1"
+                      >Select right Answer</label
+                    >
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D</option>
+                      <option>E</option>
+                    </select>
+                  </div>
+                  <!-- *************** -->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">
+                    Add Quations
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ******* -->
+
+          <!-- ***********************************************************End-Quiz********************************************* -->
+        </div>
+      </div>
+    </div>
+
+    <!-- *******************************************Scripts******************************** -->
+     <script src="../frontScripts/quizSolution.js"></script>
+  <script src="../js/jquary.js"></script>
+  <script src="../js/poper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/fontawesome.min.js"></script>
+  </body>
+</html>

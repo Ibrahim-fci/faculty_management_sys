@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="../frontScripts/checkUserId.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/uploadMaterial/uploadMaterial.css">
+      <script src="/socket.io/socket.io.js" ></script>
+    <title>material</title>
+</head>
+
+<body>
+
+
+      <!-- ****************************************-NAVBAR-****************************************** -->
+  
+
+    <div class="navTop">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">FCI</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" id="timeLine">Student Home <span class="sr-only"></span></a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Profile</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                <a class="dropdown-item" href="/quizes/" id="quizesLink">Quizes</a>
+                                <a class="dropdown-item" href="/doneQuizes" id="doneQuizes">Done Quizes</a>
+                                <a class="dropdown-item" href="#" id="materialLink">Upload materials</a>
+                                <a class="dropdown-item" href="" id="profileLink"> profile settings</a>
+                                <a class="dropdown-item" href="../../users/logout" id="logoutLink">Logout</a>
+
+                               
+
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search" onchange="greeting()">
+                        <img src="" alt="" id="userProfileImage">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- *****************************************-End-NAVBAR-***************************************** -->
+
+
+    <!-- *****************************************-End-NAVBAR-***************************************** -->
+    <!-- 
+        //
+        //
+        //
+     -->
+    <!-- ******************************************-All************************************************** -->
+    <div class="all clearfix">
+        <!-- *****************************************-SaidBar |-***************************************** -->
+        <div class="allLeft">
+            <h5>MENU</h5>
+            <ul>
+                <li class="nav-item">
+                    <a  id="doctorSideBarLink" class="nav-link" href="#"><i class="fas fa-user-tie mr-2 "></i> Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a   class="nav-link" href="/students/" id="studentsSideBarLink" ><i class="fas fa-users mr-2" ></i> Student</a>
+                </li>
+                {{!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user-shield mr-2"></i> Affairs</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/events"><i class="far fa-calendar mr-2"></i>Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-image mr-2"></i> Media</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/messages"><i class="fas fa-comment-dots mr-2"></i>Massages<span class="badge badge-success float-right mt-1" id="unreadMessages"><!--# unreaded messages--></span> </a>
+                </li>
+            </ul>
+            <br><br><br>
+            <hr>
+            <h5>PAGES</h5>
+            <div class="pages"> 
+                <li class=" mb-3"><i class="fas fa-graduation-cap mr-2"></i><a href="/posts/1">First Grade</a></li>
+                <li class=" mb-3"><i class="fas fa-graduation-cap mr-2"></i> <a href="/posts/2">Second Grade</a></li>
+                <li class="nav-item dropdown mb-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-graduation-cap mr-2"></i>Therd Grade</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/posts/3cs">Computer Science (CS)</a>
+                        <a class="dropdown-item" href="/posts/3is">Information System (IS</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mb-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-graduation-cap mr-2"></i>Fourth Grade</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/posts/4cs">Computer Science (CS)</a>
+                        <a class="dropdown-item" href="/posts/4is">Information System (IS</a>
+                    </div>
+                </li>
+               
+              
+            </div>
+        </div>
+        <!-- *****************************************-END-SaidBar-***************************************** -->
+        <!-- 
+    //
+    //
+    //
+ -->
+        <!-- *****************************************-Body-***************************************** -->
+        <!-- *****************************************-END-Body-***************************************** -->
+        <div class="allRight">
+
+            <div class="allRightTop mb-5">
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="left">
+                            <ul class="mt-3">
+                                <li class=" dropdown">
+                                    <a class="dropdown-toggle mr-2" href="#" id="dropdown01" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">MUNE</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <a class="dropdown-item" href="#" id="doctorssideBar2"><i
+                                                class="fas fa-user-tie mr-2 mb-2"></i>Doctors</a>
+                                        <a class="dropdown-item" href="/students/" id="studentssideBar2"><i
+                                                class="fas fa-users mr-2 mb-2"></i>Student</a>
+                                       
+                                        <a class="dropdown-item" href="/events"><i
+                                                class="far fa-calendar mr-2 mb-2"></i>Events</a>
+                                        <a class="dropdown-item" href="/messages"><i
+                                                class="fas fa-comment-dots mr-2"></i>Massages</a>
+                                    </div>
+                                </li>
+                                <li class=" dropdown ">
+                                          <!-- ********************** -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">PAGES</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <a class="dropdown-item mb-2" href="/posts/1"><i
+                                            class="fas fa-graduation-cap mr-2"></i>First Grade</a>
+                                    <a class="dropdown-item mb-2" href="/posts/2"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Second Grade</a>
+                                        <a class="dropdown-item mb-2" href="/posts/3cs"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Therd Grade (CS)</a>
+                                            <a class="dropdown-item mb-2" href="/posts/3is"><i
+                                                class="fas fa-graduation-cap mr-2"></i>Therd Grade (IS)</a>
+                                    <a class="dropdown-item mb-2" href="/posts/4cs"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Fourth Grade (CS)</a>
+                                        
+                                    <a class="dropdown-item mb-2" href="/posts/4is"><i
+                                            class="fas fa-graduation-cap mr-2"></i>Fourth Grade (IS)</a>
+                                        
+                                        
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <span class="mr-1 " id="sideName"><!--Name here--></span>
+                            <img src="" alt="" id="imageSide">
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="allRightBody">
+
+                <!-- ***********************************************************container********************************************* -->
+            <div class="container">
+                <div class="row d-flex justify-content-between mb-5"  id="material">
+                  <div class="loader" >Loading...</div>
+                    {{!-- <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/zip.png" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">Network</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div>
+                    <!-- ****************************end-item************************ --> 
+                    <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/word.jpg" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">Network</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div>
+                    <!-- ****************************end-item************************ --> 
+                    <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/pdf.jpg" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">Image Processing</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div>
+                    <!-- ****************************end-item************************ --> 
+                    <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/zip.png" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">OS</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div>
+                    <!-- ****************************end-item************************ --> 
+                    <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/pdf.jpg" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">AI</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div>
+                    <!-- ****************************end-item************************ --> 
+                    <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/word.jpg" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">CV</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div>
+                    <!-- ****************************end-item************************ --> 
+                    <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/zip.png" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">Arabic</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div>
+                    <!-- ****************************end-item************************ --> 
+                    <!-- ****************************item************************ -->
+                   <div class="card col-lg-3 col-md-6 mb-3 " style="widows: 18rem;">
+                        <img src="img/zip.png" class="card-img-top" >
+                        <div class="card-body">
+                          <h5 class="card-title">Math</h5>
+                          <p class="card-text">lec1</p>
+                          <button class="btn btn-danger ">
+                              <i class="fas fa-download"></i>
+                              Download
+                          </button>
+                        </div>
+                      </div> --}}
+                    <!-- ****************************end-item************************ --> 
+                    
+                    
+                    
+                </div>
+                <button class="btn btn-success mb-5" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                    <i class="fas fa-plus"></i> Add Material
+                </button>
+            </div>
+
+                <!-- ***********************************************************End-container********************************************* -->
+            </div>
+
+            <!-- *****************************Add Matirail PopUp************************ -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document ">
+                  <div class="modal-content ">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="exampleModalCenterTitle">Upload file</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class=""  id="validation"></div>
+                    <div class="modal-body">
+                      <!-- ************************* -->
+                      <div class="upload mb-3">
+                        <label for="uploadfile" >
+                          <img
+                            src="..//images/pdf-powerPoint-images/plus-icon-plus-math-icon-download-icons-9.png"
+                            alt=""
+                          />
+                        </label>
+                        <input type="file" id="uploadfile" />
+                      </div>
+                      <form class="f">
+                        <img src="../images/pdf-powerPoint-images/pdf.jpg" alt="" />
+
+                        <div class="form-group">
+                          <label for="exampleFormControlTextarea1"></label>
+                          <textarea
+                            class="form-control"
+                            id="description"
+                            rows="3"
+                            placeholder="Enter Discription..."
+                          ></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect1"> Select Grade</label>
+                          <select class="form-control" id="level">
+                            <option value="1">First Grade</option>
+                            <option value="2">Second Grade</option>
+                            <option value="3cs">Therd Grade (CS) </option>
+                            <option value="3is">Therd Grade (IS) </option>
+                            <option value="4cs">Fourth Grade (CS) </option>
+                            <option value="4is">Fourth Grade (IS) </option>
+                          </select>
+                        </div>
+                      </form>
+                      <!-- ************************* -->
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="uploadBtn">DONE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- *****************************End Add Matirail PopUp************************ -->
+
+                
+
+
+
+
+
+
+    <!-- *******************************************Scripts******************************** -->
+    <script src="../frontScripts/uploadMaterial.js"></script>
+    <script src="../js/jquary.js"></script>
+    <script src="../js/poper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

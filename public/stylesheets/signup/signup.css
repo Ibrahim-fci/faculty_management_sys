@@ -1,0 +1,12 @@
+.signup  h1{
+    color: #0069D9;
+    font-weight: bold;
+}
+.signup h2 {
+    color: #0069D9;
+    font-weight: lighter;
+}
+.signup .line{
+    width: 150px;
+    border: 1px solid #0069D9;
+}
